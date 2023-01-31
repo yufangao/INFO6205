@@ -42,6 +42,21 @@ public class TwoSumWithCalipers implements TwoSum {
     public static List<Pair> calipers(int[] a, Function<Pair, Integer> function) {
         List<Pair> pairs = new ArrayList<>();
         // FIXME : implement getPairs
+
+        for(int L = 0, R = a.length - 1; L < R; ){
+            Pair pair = new Pair(a[L], a[R]);
+            int sum = function.apply(pair);
+            if(sum == 0){
+                pairs.add(pair);
+                L++;
+                R--;
+            }else if(sum < 0){
+                L++;
+            }else{
+                R--;
+            }
+        }
+
         // END 
         return pairs;
     }
