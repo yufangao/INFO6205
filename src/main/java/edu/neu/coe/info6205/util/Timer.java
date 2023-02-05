@@ -1,5 +1,6 @@
 package edu.neu.coe.info6205.util;
 
+import java.time.Clock;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -57,7 +58,28 @@ public class Timer {
     public <T, U> double repeat(int n, Supplier<T> supplier, Function<T, U> function, UnaryOperator<T> preFunction, Consumer<U> postFunction) {
         logger.trace("repeat: with " + n + " runs");
         // FIXME: note that the timer is running when this method is called and should still be running when it returns. by replacing the following code
-         return 0;
+        for (int i = 0; i < n; i++) {
+            pause();
+            U u;
+            if(preFunction != null){
+                T t=preFunction.apply(supplier.get());
+                resume();
+                u=function.apply(t);
+            }
+            else {
+                resume();
+                u=function.apply(supplier.get());
+            }
+            lap();
+            pause();
+            if(postFunction != null){
+                postFunction.accept(u);
+            }
+            resume();
+        }
+        pause();
+        final double result =meanLapTime();
+        return result;
         // END 
     }
 
@@ -177,7 +199,8 @@ public class Timer {
      */
     private static long getClock() {
         // FIXME by replacing the following code
-         return 0;
+        Clock clock= Clock.systemUTC();
+        return clock.millis() * 1000000;
         // END 
     }
 
@@ -190,7 +213,7 @@ public class Timer {
      */
     private static double toMillisecs(long ticks) {
         // FIXME by replacing the following code
-         return 0;
+        return ticks/1000000;
         // END 
     }
 
