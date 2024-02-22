@@ -37,14 +37,6 @@ public class TwoSumBenchmark {
         // END 
     }
 
-    private final static TimeLogger[] timeLoggersCubic = {
-            new TimeLogger("Raw time per run (mSec): ", (time, n) -> time),
-            new TimeLogger("Normalized time per run (n^3): ", (time, n) -> time / n / n / n * 1e6)
-    };
-    private final static TimeLogger[] timeLoggersQuadrithmic = {
-            new TimeLogger("Raw time per run (mSec): ", (time, n) -> time),
-            new TimeLogger("Normalized time per run (n^2 log n): ", (time, n) -> time / n / n / Utilities.lg(n) * 1e6)
-    };
     private final static TimeLogger[] timeLoggersQuadratic = {
             new TimeLogger("Raw time per run (mSec): ", (time, n) -> time),
             new TimeLogger("Normalized time per run (n^2): ", (time, n) -> time / n / n * 1e6)

@@ -18,10 +18,9 @@ import static org.junit.Assert.assertTrue;
 
 public class GeoGraphSphericalTest {
 
-    private static final int oneNauticalMile = 1852; // (i.e. one minute of latitude) in meters
-    private static final int oneDegreeLongAtEquator = 111321; // in meters
-    public static final int londonToBoston = 5239657; // in metres (assuming spherical earth)
-    private Building sn;
+    private static final int oneNauticalMile = 1852; 
+    private static final int oneDegreeLongAtEquator = 111321; 
+    public static final int londonToBoston = 5239657; 
     private Tunnels ts;
     private GeoKruskal<Building, TunnelProperties> kruskal;
     private Building la = new Building(34, "LA", "Centennial", -71.0930697, 42.3384215, false, "Lake Hall");

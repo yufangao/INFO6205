@@ -6,14 +6,12 @@ package edu.neu.coe.info6205.balsearchtree;
 
 public class TwoFourTree<Key extends Comparable<Key>, Value> {
 
-    private Node root;
 
     private class Node {
         private final Value value;
         private final Key key1;
         private final Key key2;
         private final Key key3;
-        private Node left, middle, right;
 
         public Node(Value value, Key key1, Key key2, Key key3) {
             this.value = value;
