@@ -16,29 +16,15 @@ import java.util.Iterator;
  */
 public class DList<Item> implements Iterable<Item> {
 
-    /**
-     * Constructor which seeds the DList with one item
-     *
-     * @param item the Item to place into the new DList.
-     */
     public DList(Item item) {
         super();
         addBeforeElement(item, null);
     }
 
-    /**
-     * Constructor which creates an empty DList
-     */
     public DList() {
         super();
     }
 
-    /**
-     * Add an item immediately before the given element
-     *
-     * @param item the item to be added.
-     * @param next may be null, in which case the item will be the only item on the list
-     */
     public void addBefore(Item item, Item next) throws BQSException {
         if (next == null) addBeforeElement(item, null);
         else {
@@ -50,12 +36,6 @@ public class DList<Item> implements Iterable<Item> {
         }
     }
 
-    /**
-     * Add an item immediately before the given element
-     *
-     * @param item the item to be added.
-     * @param prev may NOT be null
-     */
     public void addAfter(Item item, Item prev) throws BQSException {
         {
             D_Element last = findLast(prev);
@@ -66,11 +46,6 @@ public class DList<Item> implements Iterable<Item> {
         }
     }
 
-    /**
-     * Remove the first element matching item from this DList
-     *
-     * @param item the item to be removed.
-     */
     public void remove(Item item) throws BQSException {
         D_Element last = findLast(item);
         if (last != null)
@@ -79,33 +54,16 @@ public class DList<Item> implements Iterable<Item> {
             throw new BQSException("item not found: " + item);
     }
 
-    /**
-     * Add an item immediately before the given element
-     *
-     * @param item the item to be added.
-     * @param next may be null, in which case the item will be the only item on the list
-     */
     public void addBeforeElement(Item item, D_Element next) {
         // FIXME
         // END 
     }
 
-    /**
-     * Add an item immediately before the given element
-     *
-     * @param item the item to be added.
-     * @param prev may NOT be null
-     */
     public void addAfterElement(Item item, D_Element prev) {
         // FIXME
         // END 
     }
 
-    /**
-     * Remove the element given from this DList
-     *
-     * @param element the element to be removed.
-     */
     public void remove(D_Element element) {
         // FIXME
         // END 
@@ -172,6 +130,5 @@ public class DList<Item> implements Iterable<Item> {
 
 
     private D_Element head = null;
-    private D_Element tail = null;
     private int count = 0;
 }
